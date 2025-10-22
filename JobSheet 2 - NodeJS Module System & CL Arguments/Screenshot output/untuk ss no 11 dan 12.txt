@@ -1,2 +1,0 @@
-process.argv adalah array: [0]=path node, [1]=path app.js, [2]=RADITYA, [3]=PUTRA, [4]=FARMA.
-Di kode kedua, Anda set command = process.argv[5] (index 5 tidak ada → undefined) tapi yang dicetak adalah process.argv[2], jadi keluar “RADITYA”.
