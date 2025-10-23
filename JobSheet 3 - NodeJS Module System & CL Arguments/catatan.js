@@ -50,7 +50,7 @@ const listCatatan = function () {
   })
 }
 
-//  baca satu catatan berdasarkan judul
+// baca satu catatan berdasarkan judul
 const bacaCatatan = function (judul) {
   const catatan = muatCatatan()
   const note = catatan.find((n) => n.judul === judul)
