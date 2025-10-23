@@ -66,7 +66,7 @@ app.use((req, res) => {
 
 app.listen(4000, () => {
     console.log('Server berjalan pada port 3000')
-})
+}) 
 
 
 
