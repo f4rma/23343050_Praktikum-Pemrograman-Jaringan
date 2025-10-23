@@ -2,7 +2,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 
 const ambilCatatan = function () {
-  return 'Ini Catatan Randi Proska...'
+  return 'Ini Catatan Raditya Putra Farma...'
 }
 
 const tambahCatatan = function (judul, isi) {

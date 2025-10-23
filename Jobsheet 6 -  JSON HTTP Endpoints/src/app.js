@@ -2,6 +2,8 @@ const path = require('path')
 const express = require('express')
 const { engine } = require('express-handlebars');
 const hbs = require('hbs')
+const geocode = require('./utils/geocode')
+const forecast = require('./utils/prediksiCuaca')
 
 const app = express()
 
@@ -35,17 +37,38 @@ app.get('/bantuan', (req, res) => {
 })
 
 app.get('/infoCuaca', (req, res) => {
-    res.send([{
-        prediksiCuasa: 'Cuaca berpotensi hujan',
-        lokasi: 'Padang'
-    }])
+    if (!req.query.address) {
+        return res.send({
+            error: 'Kamu harus memasukkan lokasi yang ingin dicari'
+        })
+    }
+    geocode(req.query.address, (error, {latitude, longitude, location} = {}) => {
+        if (error) {
+            return res.send({error})
+        }
+        forecast(latitude, longitude, (error, dataPrediksi) => {
+            if (error){
+                return res.send({error})
+            }
+            res.send({
+                prediksiCuaca: dataPrediksi,
+                lokasi: location,
+                address: req.query.address
+            })
+        }) 
+    })
+    // res.send([{
+    //     prediksiCuaca: 'Cuaca berpotensi hujan',
+    //     lokasi: 'Padang',
+    //     address: req.query.address
+    // }])
 })
 
-app.get('/tentang', (req,res) =>{
-    res.render('tentang',{
-        judul: 'Tentang Saya',
-        nama: 'Raditya Putra Farma',
-    })
+app.get('/tentang', (req, res) => {
+  res.render('tentang', {
+    judul: 'Tentang',
+    nama: 'Raditya Putra Farma'
+  })
 })
 
 app.get('/bantuan/', (req, res) => {
@@ -65,7 +88,7 @@ app.use((req, res) => {
 })
 
 app.listen(4000, () => {
-    console.log('Server berjalan pada port 3000')
+    console.log('Server berjalan pada port 4000')
 })
 
 

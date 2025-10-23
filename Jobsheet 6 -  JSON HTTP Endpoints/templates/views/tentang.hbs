@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body>
+    <div class="main-content">
+      {{> header}}
+
+      <section class="about-hero-alt">
+        <div class="about-col left">
+          <h2 class="about-heading">Kami Membantu Anda Mendapatkan Informasi Cuaca</h2>
+          <p class="about-copy">
+            Aplikasi Cek Cuaca menampilkan informasi cuaca real‑time berdasarkan
+            lokasi yang Anda masukkan. Teks alamat dikonversi menjadi koordinat
+            dengan Mapbox Geocoding, lalu data cuaca diambil dari Weatherstack.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-grid">
+        <article class="card">
+          <h3>Fitur Utama</h3>
+          <ul class="feature-list-clean">
+            <li>
+              <p>Informasi suhu, kelembapan, deskripsi cuaca, kecepatan angin, dan indeks UV.</p>
+            </li>
+            <li>
+              <p>Dukungan bahasa Indonesia dan pembatasan wilayah agar hasil pencarian relevan.</p>
+            </li>
+            <li>
+              <p>Tampilan hasil yang ringan dan nyaman digunakan di semua perangkat.</p>
+            </li>
+          </ul>
+
+          <br>
+          <section class="card privacy-block">
+            <h4>Kebijakan Privasi</h4>
+            <p>Data lokasi yang Anda masukkan hanya digunakan untuk mengambil informasi cuaca.</p>
+          </section>
+        </article>
+
+        <aside class="card about-profile">
+          <img class="portrait large" src="/img/me.jpg" alt="Foto pengembang">
+          <h3>Tentang Pengembang</h3>
+          <p>Raditya Putra Farma, mahasiswa Informatika yang tertarik pada Web development, dan Pemrograman jaringan.</p>
+          <div class="card social-block">
+            <a class="btn-gh" href="https://github.com/f4rma" target="_blank" rel="noopener">
+              <!-- svg github -->
+              <svg class="gh-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A12 12 0 0 0 0 12.7c0 5.39 3.44 9.96 8.21 11.58..."/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    {{> footer}}
+  </body>
+</html>
